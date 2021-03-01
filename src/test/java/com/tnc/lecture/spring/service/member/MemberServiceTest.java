@@ -24,7 +24,8 @@ class MemberServiceTest {
         Member findMember = memberService.findMember(1L);
 
         // then
-        assertThat(findMember.getName()).isEqualTo("memberA");
         assertThat(memberA).isEqualTo(findMember);
+        assertThat(findMember.getName()).isEqualTo("memberA");
+        assertThat(findMember.isNewUser()).isTrue();
     }
 }

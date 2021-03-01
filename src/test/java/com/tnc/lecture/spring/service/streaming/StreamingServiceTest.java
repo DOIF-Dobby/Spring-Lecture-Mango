@@ -8,8 +8,10 @@ import com.tnc.lecture.spring.service.member.MemberService;
 import com.tnc.lecture.spring.service.member.MemberServiceImpl;
 import com.tnc.lecture.spring.service.music.MusicService;
 import com.tnc.lecture.spring.service.music.MusicServiceImpl;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -32,6 +34,7 @@ class StreamingServiceTest {
     }
 
     @Test
+    @DisplayName("신규 유저 스트리밍 시간 테스트")
     public void createStreamingTest() throws Exception {
         // given
 
@@ -39,7 +42,6 @@ class StreamingServiceTest {
         Streaming musicStreaming = streamingService.createMusicStreaming(1L, 1L);
 
         // then
-        System.out.println("musicStreaming = " + musicStreaming);
+        Assertions.assertThat(musicStreaming.getStreamingTime()).isEqualTo(240);
     }
-
 }

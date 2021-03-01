@@ -17,8 +17,9 @@ public class StreamingServiceImpl implements StreamingService {
     private final MemberRepository memberRepository = new MemoryMemberRepository();
     private final MusicRepository musicRepository = new MemoryMusicRepository();
 
-    private final NewUserPreListenPolicy newUserPreListenPolicy = new FullNewUserPreListenPolicy();
+//    private final NewUserPreListenPolicy newUserPreListenPolicy = new FullNewUserPreListenPolicy();
 //    private final NewUserPreListenPolicy newUserPreListenPolicy = new HalfNewUserPreListenPolicy();
+    private NewUserPreListenPolicy newUserPreListenPolicy;
 
     @Override
     public Streaming createMusicStreaming(Long memberId, Long musicId) {

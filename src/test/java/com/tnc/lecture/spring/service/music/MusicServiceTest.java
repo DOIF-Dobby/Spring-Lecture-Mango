@@ -23,5 +23,4 @@ class MusicServiceTest {
         // then
         Assertions.assertThat(music).isEqualTo(findMusic);
     }
-
 }
