@@ -4,22 +4,17 @@ import com.tnc.lecture.spring.entity.Member;
 import com.tnc.lecture.spring.entity.Music;
 import com.tnc.lecture.spring.entity.Streaming;
 import com.tnc.lecture.spring.entity.constant.Membership;
-import com.tnc.lecture.spring.policy.FullNewUserPreListenPolicy;
-import com.tnc.lecture.spring.policy.HalfNewUserPreListenPolicy;
 import com.tnc.lecture.spring.policy.NewUserPreListenPolicy;
 import com.tnc.lecture.spring.respository.member.MemberRepository;
-import com.tnc.lecture.spring.respository.member.MemoryMemberRepository;
-import com.tnc.lecture.spring.respository.music.MemoryMusicRepository;
 import com.tnc.lecture.spring.respository.music.MusicRepository;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class StreamingServiceImpl implements StreamingService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final MusicRepository musicRepository = new MemoryMusicRepository();
-
-//    private final NewUserPreListenPolicy newUserPreListenPolicy = new FullNewUserPreListenPolicy();
-//    private final NewUserPreListenPolicy newUserPreListenPolicy = new HalfNewUserPreListenPolicy();
-    private NewUserPreListenPolicy newUserPreListenPolicy;
+    private final MemberRepository memberRepository;
+    private final MusicRepository musicRepository;
+    private final NewUserPreListenPolicy newUserPreListenPolicy;
 
     @Override
     public Streaming createMusicStreaming(Long memberId, Long musicId) {

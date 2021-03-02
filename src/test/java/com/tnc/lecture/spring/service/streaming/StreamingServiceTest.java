@@ -1,5 +1,6 @@
 package com.tnc.lecture.spring.service.streaming;
 
+import com.tnc.lecture.spring.AppConfig;
 import com.tnc.lecture.spring.entity.Member;
 import com.tnc.lecture.spring.entity.Music;
 import com.tnc.lecture.spring.entity.Streaming;
@@ -20,9 +21,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StreamingServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
-    MusicService musicService = new MusicServiceImpl();
-    StreamingService streamingService = new StreamingServiceImpl();
+    AppConfig appConfig = new AppConfig();
+    MusicService musicService = appConfig.musicService();
+    MemberService memberService = appConfig.memberService();
+    StreamingService streamingService = appConfig.streamingService();
 
     @BeforeEach
     public void createInitData() {
